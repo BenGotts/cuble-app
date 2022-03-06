@@ -1,0 +1,46 @@
+.noInfo {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background: grey;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 2px;
+}
+
+.correct {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background: green;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 2px;
+}
+
+.someInfo {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background: yellow;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 2px;
+}
+
+.guesses {
+    width: 200px;
+    margin: auto;
+}
+
+.label {
+    width: 200px;
+    margin: auto;
+    padding: 0px;
+    list-style-type: none;
+}
+
+.label li {
+    display: inline;
+    margin: 5px;
+}
