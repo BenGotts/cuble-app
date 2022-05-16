@@ -6,29 +6,15 @@ import './suggestion.css';
 import './square.css';
 import Game from "./Game";
 import { Typography } from "@material-ui/core";
-// import Footer from "./components/Footer";
+// import { AppBar, Toolbar, GlobalStyles, CssBaseline, Link, Button } from "@mui/material";
+// import MenuIcon from '@mui/icons-material/Menu';
+// import PricingContent from './Pricing';
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+
 
 function App() {
-  // const [persons, setPersons] = useState([]);
-  // const [text, setText] = useState('');
-  // const [suggestions, setSuggestions] = useState([]);
-
-  // useEffect(() => {
-  //     setPersons(DATA['persons']);
-  // }, []);
-
-  // const onChangeHandler = (text) => {
-  //   let matches = []
-  //   if (text.length > 0) {
-  //     matches = persons.filter(p => {
-  //       const regex = new RegExp(`${text}`, 'gi');
-  //       return p.searchableName.match(regex)
-  //     })
-  //   }
-  //   setSuggestions(matches)
-  //   setText(text)
-  // }
-
+  document.title = "Cuble"
   function roundToDay(date) {
     const p = 24 * 60 * 60 * 1000;
     return new Date(Math.floor(date.getTime() / p ) * p);
@@ -39,31 +25,10 @@ function App() {
 
   return (
     <>
+    {/* <Header /> */}
     <Typography variant="h3">CUBLE</Typography>
-    {/* <h1>CUBLE</h1> */}
     <Game cuber={cuber} />
-    {/* <div className="noInfo" />
-    <div className="correct" />
-    <div className="someInfo" /> */}
-    {/* <input type='text'
-      onChange={e => onChangeHandler(e.target.value)}
-      value={text}
-      onBlur={() => {
-        setTimeout(() => {
-          setSuggestions([])
-        }, 100);
-      }}
-    />
-    {suggestions && suggestions.map((suggestion,i) =>
-      <div key={suggestion.personId} className='suggestion'
-      onClick={() => {
-        setText(suggestion.searchableName)
-        setSuggestions([])
-      }}>
-        {suggestion.searchableName}
-      </div>
-    )} */}
-    {/* <LiveSearch /> */}
+    {/* <Footer /> */}
     </>
   )
 }
