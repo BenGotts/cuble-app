@@ -9,6 +9,7 @@ import { Typography } from "@material-ui/core";
 // import Footer from "./components/Footer";
 
 function App() {
+  document.title = "Cuble";
   // const [persons, setPersons] = useState([]);
   // const [text, setText] = useState('');
   // const [suggestions, setSuggestions] = useState([]);
