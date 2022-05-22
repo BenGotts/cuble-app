@@ -5,7 +5,7 @@ import DATA from './data.json';
 import './suggestion.css';
 import './square.css';
 import Game from "./Game";
-import { Typography } from "@material-ui/core";
+import { Typography, Link } from "@material-ui/core";
 // import Footer from "./components/Footer";
 
 function App() {
@@ -40,7 +40,11 @@ function App() {
 
   return (
     <>
-    <Typography variant="h3">CUBLE</Typography>
+    {/* <Typography href="cuble.app" variant="h3">CUBLE</Typography> */}
+    <Link href="https://cuble.app"
+          color="inherit"
+          underline="none" 
+          variant="h3">CUBLE</Link>
     {/* <h1>CUBLE</h1> */}
     <Game cuber={cuber} />
     {/* <div className="noInfo" />
