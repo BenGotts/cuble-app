@@ -3,13 +3,7 @@ import zipfile
 from io import BytesIO
 import redis
 import pandas as pd
-
-
-# Redis connection details
-REDIS_HOST = "redis-11279.c1.us-west-2-2.ec2.redns.redis-cloud.com"
-REDIS_PORT = 11279
-REDIS_PASSWORD="ITy9zcYZXRnZ6uBQ0kMpCdgivVkMso9U"
-REDIS_HASH_NAME = "cubers"
+import os
 
 def process_data(redis_client, singles_df, averages_df, persons_df, countries_df):
   """
@@ -103,7 +97,7 @@ def process_data(redis_client, singles_df, averages_df, persons_df, countries_df
     }
 
     print(f'Processing {person_id}')
-    redis_client.json().mset([(f"{REDIS_HASH_NAME}:{person_id}", "$", cuber_data)])
+    redis_client.json().mset([(f"{os.environ['REDIS_HASH_NAME']}:{person_id}", "$", cuber_data)])
 
 
 def main(redis_client):
@@ -137,10 +131,10 @@ def main(redis_client):
 
       process_data(redis_client, singles_df, averages_df, persons_df, countries_df)
       
-      person = redis_client.json().get('cubers:2016GOTT01')
+      person = redis_client.json().get(f"{os.environ['REDIS_HASH_NAME']}:2016GOTT01")
       print(person)
 
 if __name__ == "__main__":  
-  redis_client = redis.Redis(host=REDIS_HOST, port=REDIS_PORT, password=REDIS_PASSWORD)
+  redis_client = redis.Redis(host=os.environ['REDIS_HOST'], port=os.environ['REDIS_PORT'], password=os.environ['REDIS_PASSWORD'])
   main(redis_client)
   redis_client.close()
